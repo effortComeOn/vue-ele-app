@@ -17,7 +17,7 @@
         <li v-for="(item, index) in goods" class="food-list" ref="food" :key="index">
           <h1 class="title">{{item.name}}</h1>
           <ul>
-            <li v-for="(food, index) in item.foods" :key="index" class="food-item border-1px">
+            <li @click="selectFood(food,$event)" v-for="(food, index) in item.foods" :key="index" class="food-item border-1px">
               <div class="icon">
                 <img width="57" height="57" :src="food.icon" alt="">
               </div>
@@ -27,10 +27,7 @@
                 <div class="extra">
                   <span class="count">月售{{food.sellCount}}</span><span>好评率{{food.rating}}%</span>
                 </div>
-                <div class="price">
-                  <span class="now">¥{{food.price}}</span>
-                  <span class="old" v-show="food.oldPrice">¥{{food.oldPrice}}</span>
-                </div>
+                <v-price :now="food.price" :old="food.oldPrice"></v-price>
                 <div class="cartwrapper">
                   <v-cart :food="food" @add-cart="handleCart"></v-cart>
                 </div>
@@ -41,6 +38,7 @@
       </ul>
     </div>
     <v-shopcart ref="shopcart" :select-foods="selectFoods" :min-price="seller.minPrice" :delivery-price="seller.deliveryPrice"></v-shopcart>
+    <v-food ref="foodDetail" @add-cart="handleCart" :food="selectedFood"></v-food>
   </div>
 </template>
 
@@ -48,6 +46,9 @@
 import icon from '@/components/icon/icon'
 import shopcart from '@/components/shopcard/shopcard'
 import cartcontrol from '@/components/cartcontrol/cartcontrol'
+import food from '@/components/food/food'
+import price from '@/components/price/price'
+
 import BScroll from 'better-scroll'
 
 const ERR_NO = 0
@@ -58,13 +59,16 @@ export default {
     return {
       goods: [],
       listHeight: [],
-      scrollY: 0
+      scrollY: 0,
+      selectedFood: {}
     }
   },
   components: {
     'v-icon': icon,
     'v-shopcart': shopcart,
-    'v-cart': cartcontrol
+    'v-cart': cartcontrol,
+    'v-food': food,
+    'v-price': price
   },
   computed: {
     currentIndex () {
@@ -150,6 +154,13 @@ export default {
       let foodList = this.$refs.food
       let el = foodList[index]
       this.foodsScroll.scrollToElement(el, 300)
+    },
+    selectFood (food, event) {
+      if (!event._constructed) {
+        return
+      }
+      this.selectedFood = food
+      this.$refs.foodDetail.show()
     }
   }
 }
@@ -162,6 +173,7 @@ export default {
   position: absolute;
   top: 174px;
   bottom: 0;
+  // margin-bottom: 46px;
   width: 100%;
   display: flex;
   overflow: hidden;
@@ -248,20 +260,6 @@ export default {
         .extra{
           .count{
             margin-right: 12px;
-          }
-        }
-        .price{
-          font-weight: 700;
-          line-height: 24px;
-          .now{
-            margin-right: 24px;
-            font-size: 14px;
-            color: rgb(240,20,20);
-          }
-          .old{
-            text-decoration: line-through;
-            font-size: 10px;
-            color: rgb(147,153,159);
           }
         }
         .cartwrapper{
