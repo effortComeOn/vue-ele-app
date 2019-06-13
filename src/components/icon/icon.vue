@@ -2,7 +2,8 @@
 <span>
     <span v-if="size==1" :class="classMap[type]" class="icon1"></span>
     <span v-if="size==2" :class="classMap[type]" class="icon2"></span>
-    <span v-if="size==3" :class="classMap[type]" class="icon2"></span>
+    <span v-if="size==3" :class="classMap[type]" class="icon3"></span>
+    <span v-if="size==4" :class="classMap[type]" class="icon4"></span>
 </span>
 </template>
 
@@ -90,6 +91,31 @@ export default {
   }
   &.guarantee {
     .bg-img('guarantee_3')
+  }
+}
+
+.icon4{
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  vertical-align: top;
+  margin-right: 6px;
+  background-repeat: no-repeat;
+  background-size: 16px 16px;
+  &.decrease {
+    .bg-img('decrease_4')
+  }
+  &.discount {
+    .bg-img('discount_4')
+  }
+  &.invoice {
+    .bg-img('invoice_4')
+  }
+  &.special {
+    .bg-img('special_4')
+  }
+  &.guarantee {
+    .bg-img('guarantee_4')
   }
 }
 </style>

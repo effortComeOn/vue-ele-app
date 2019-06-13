@@ -92,15 +92,15 @@ export default {
         this.ratings = res.data
 
         this.$nextTick(() => {
-        if (!this.scroll) {
-          let ratings = document.querySelector('.ratings')
-          this.scroll = new BScroll(ratings, {
-            click: true
-          })
-        } else {
-          this.scroll.refresh()
-        }
-      })
+          if (!this.scroll) {
+            let ratings = document.querySelector('.ratings')
+            this.scroll = new BScroll(ratings, {
+              click: true
+            })
+          } else {
+            this.scroll.refresh()
+          }
+        })
       }
     })
   },
