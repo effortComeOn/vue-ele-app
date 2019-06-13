@@ -40,9 +40,10 @@ export default {
   methods: {
     queryGoods () {
       this.$http.get('/api/seller?id=' + this.seller.id).then(response => {
-        let seller = response.body
-        if (seller.errno === ERR_OK) {
-          this.seller = seller.data
+        response = response.body
+        if (response.errno === ERR_OK) {
+          this.seller = Object.assign({}, this.seller, response.data)
+          console.log(this.seller.id)
         }
       }, response => {
         console.log(response)
