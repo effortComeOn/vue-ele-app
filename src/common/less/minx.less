@@ -1,4 +1,4 @@
-.border-1px($color){
+.border-1px(@color){
   position: relative;
   &:after{
     display: block;
@@ -7,7 +7,7 @@
     bottom: 0;
     width: 100%;
     content: ' ';
-    border-top: 1px solid $color;
+    border-top: 1px solid @color;
   }
 }
 

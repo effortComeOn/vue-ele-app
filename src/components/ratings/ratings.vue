@@ -34,7 +34,7 @@
         :ratings="ratings"></ratingselect>
     <div class="rating-wrapper">
       <ul>
-        <li v-show="needShow(rating.rateType, rating.text)" v-for="(rating, index) in ratings" :key="index" class="rating-item">
+        <li v-show="needShow(rating.rateType, rating.text)" v-for="(rating, index) in ratings" :key="index" class="rating-item border-1px">
           <div class="avatar">
             <img :src="rating.avatar" width="28" alt="">
           </div>
@@ -131,6 +131,8 @@ export default {
 </script>
 
 <style lang="less">
+@import '../../common/less/minx.less';
+
 .ratings{
   position: absolute;
   top: 174px;
@@ -222,7 +224,7 @@ export default {
       .rating-item{
         display: flex;
         padding: 18px 0;
-        border-bottom: 1px solid rgba(7,17,27,0.1);
+        .border-1px(rgba(7, 17, 27, 0.1));
         .avatar{
           flex: 0 0 28px;
           width: 28px;

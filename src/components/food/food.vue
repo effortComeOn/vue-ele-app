@@ -43,7 +43,7 @@
 
           <div class="rating-wrapper">
             <ul v-show="food.ratings && food.ratings.length > 0">
-              <li v-show="needShow(rating.rateType, rating.text)" v-for="(rating, index) in food.ratings" :key="index" class="rating-item">
+              <li v-show="needShow(rating.rateType, rating.text)" v-for="(rating, index) in food.ratings" :key="index" class="rating-item border-1px">
                 <div class="user">
                   <div class="name">{{rating.username}}</div>
                   <img :src="rating.avatar" width="12" height="12" alt="" class="avatar">
@@ -175,6 +175,8 @@ export default {
 </script>
 
 <style lang="less">
+@import '../../common/less/minx.less';
+
   .food {
     position: fixed;
     top: 0;
@@ -300,7 +302,7 @@ export default {
           .rating-item{
             position: relative;
             padding: 16px 0;
-            border-bottom: 1px solid rgba(7,17,27,0.1);
+            .border-1px(rgba(7, 17, 27, 0.1));
             .user{
               position: absolute;
               right: 0;

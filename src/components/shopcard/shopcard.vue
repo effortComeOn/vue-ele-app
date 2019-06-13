@@ -406,8 +406,7 @@ export default {
         position: relative;
         padding: 12px 0;
         box-sizing: border-box;
-        // .border-1px(rgba(7,17,27,0.1));
-        border-bottom: 1px solid rgba(7,17,27,0.1);
+        .border-1px(rgba(7,17,27,0.1));
         .name{
           line-height: 24px;
           font-size: 14px;

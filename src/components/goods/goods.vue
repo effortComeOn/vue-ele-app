@@ -202,8 +202,7 @@ export default {
         .text{
           display: table-cell;
           width: 56px;
-          border-bottom: 1px solid rgba(7,17,27,0.1);
-          // .border-1px(rgba(7, 17, 27, 0.1));
+          .border-1px(rgba(7, 17, 27, 0.1));
           vertical-align: middle;
           font-size: 12px;
           &:last-child{
@@ -228,9 +227,8 @@ export default {
       display: flex;
       margin: 18px;
       padding-bottom: 18px;
-      border-bottom: 1px solid #d9dde1;
       position: relative;
-      // .border-1px(rgba(7, 17, 27, 0.1));
+      .border-1px(rgba(7, 17, 27, 0.1));
       &:last-child{
         border: 0;
         margin-bottom: 0;

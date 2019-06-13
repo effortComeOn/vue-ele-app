@@ -1,11 +1,11 @@
 <template>
   <div class="ratingselect">
-    <div class="rating-type">
+    <div class="rating-type border-1px">
       <span @click="select(2, $event)" class="block positive" :class="{'active': selectType===2}">{{desc.all}}<span class="count">{{ratings.length}}</span></span>
       <span @click="select(0, $event)" class="block positive" :class="{'active': selectType===0}">{{desc.positive}}<span class="count">{{positives.length}}</span></span>
       <span @click="select(1, $event)" class="block negitive" :class="{'active': selectType===1}">{{desc.negitive}}<span class="count">{{negitives.length}}</span></span>
     </div>
-    <div class="switch" :class="{'on': onlyContent}">
+    <div class="switch border-1px" :class="{'on': onlyContent}">
       <span @click="toggleContent" class="icon-check_circle"></span>
       <span class="text">只看有内容的评价</span>
     </div>
@@ -80,7 +80,7 @@ export default {
   .rating-type{
     padding: 18px 0;
     margin: 0 18px;
-    border-bottom: 1px solid rgba(7,17,27,0.1);
+    .border-1px(rgba(7, 17, 27, 0.1));
     font-size: 0;
     .block{
       display: inline-block;
@@ -113,7 +113,7 @@ export default {
   .switch{
     padding: 12px 18px;
     line-height: 24px;
-    border-bottom: 1px solid rgba(7,17,27,0.1);
+    .border-1px(rgba(7, 17, 27, 0.1));
     color: rgb(147,153,159);
     font-size: 0;
     &.on{

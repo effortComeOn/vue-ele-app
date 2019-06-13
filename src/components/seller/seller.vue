@@ -3,7 +3,7 @@
     <div class="seller-content">
       <div class="overview">
         <div class="title">{{seller.name}}</div>
-        <div class="desc">
+        <div class="desc border-1px">
           <star :size="36" :score="seller.score"></star>
           <div class="text">（{{seller.ratingCount}}）</div>
           <div class="text">月售{{seller.sellCount}}单</div>
@@ -37,11 +37,11 @@
       <split></split>
       <div class="bulletin">
         <h1 class="title">公告与活动</h1>
-        <div class="content-wrapper">
+        <div class="content-wrapper border-1px">
           <p class="content">{{seller.bulletin}}</p>
         </div>
         <ul v-if="seller.supports" class="supports">
-          <li class="support-item" v-for="(item, index) in seller.supports" :key="index">
+          <li class="support-item border-1px" v-for="(item, index) in seller.supports" :key="index">
             <icon :type="item.type" :size="2"></icon>
             <span class="description">{{item.description}}</span>
           </li>
@@ -63,9 +63,9 @@
 
       <split></split>
       <div class="info">
-        <h1 class="title">商家信息</h1>
+        <h1 class="title border-1px">商家信息</h1>
         <ul>
-          <li v-for="(info, index) in seller.infos" :key="index" class="info-item">
+          <li v-for="(info, index) in seller.infos" :key="index" class="info-item border-1px">
             {{info}}
           </li>
         </ul>
@@ -165,6 +165,8 @@ export default {
 </script>
 
 <style lang="less">
+@import '../../common/less/minx.less';
+
 .seller{
   position: absolute;
   top: 174px;
@@ -182,7 +184,7 @@ export default {
     }
     .desc{
       padding-bottom: 18px;
-      border-bottom: rgba(7,17,27,0.1);
+      .border-1px(rgba(7, 17, 27, 0.1));
       font-size: 0;
       .star{
         display: inline-block;
@@ -258,7 +260,7 @@ export default {
     }
     .content-wrapper{
       padding: 0 12px 16px 12px;
-      border-bottom: 1px solid rgba(7,17,27,0.1);
+      .border-1px(rgba(7, 17, 27, 0.1));
       .content{
         line-height: 24px;
         font-size: 12px;
@@ -269,7 +271,7 @@ export default {
       .support-item{
         padding: 16px 12px;
         font-size: 0;
-        border-bottom: 1px solid rgba(7,17,27,0.1);
+        .border-1px(rgba(7, 17, 27, 0.1));
         &:last-child{
           border: none;
         }
@@ -314,12 +316,12 @@ export default {
       padding-bottom: 12px;
       line-height: 14px;
       font-size: 14px;
-      border-bottom: 1px solid rgba(7,17,27,0.1);
+      .border-1px(rgba(7, 17, 27, 0.1));
     }
     .info-item{
       padding: 16px 12px;
       line-height: 16px;
-      border-bottom: 1px solid rgba(7,17,27,0.1);
+      .border-1px(rgba(7, 17, 27, 0.1));
       font-size: 12px;
       &:last-child{
         border: none;

@@ -12,7 +12,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/goods'
+      redirect: '/goods?id=12234'
     },
     {
       path: '/goods',
